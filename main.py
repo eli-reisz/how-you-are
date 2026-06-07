@@ -73,11 +73,29 @@ if married == "no":
     score += 1
     
 
+kids = input("do you have kids? ").lower()
+if kids == "yes":
+  kids_amount = int(input("how many kids do you have? "))
+  if married == "yes" and age >= 25:
+    score += 2
+  elif married == "yes" and age < 25:
+    score += 1
+  elif married == "no":
+    score -= 1
+  if kids_amount <= 2:
+    score += 1
+  elif kids_amount >= 5:
+    score -= 1
+
+elif kids == "no":
+  if married == "yes" and age >= 30:
+    score -= 1
+
 if score >= 4:
   print("Your happy!!!")
-  
+
 elif score < 4 and score > 0:
   print("your not stabl")
-  
+
 elif score <= 0:
   print("your dipresed")
